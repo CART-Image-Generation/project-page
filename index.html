@@ -75,15 +75,15 @@
     <section id="method" class="panel">
       <h2>Method at a Glance</h2>
       <p>
-        DCT-Shield optimizes perturbations in the JPEG frequency space. Given an input image, we enter the JPEG pipeline, perturb the quantized DCT coefficients under a perceptual budget, and invert back to the pixel domain. The optimization objective penalizes immunized image's latent that enables successful malicious edits while enforcing imperceptibility and robustness to purification. Key features of DCT-Shield -
+        CART employs a "next-detail" strategy, modeling images as hierarchical compositions of interpretable visual layers. It first decomposes images into a structural "base" and recursive "detail" factors using Mumford-Shah smoothing. Factors are encoded into 2D token maps via VQ-VAE to preserve spatial coherence and inherent image structure. Residual quantization and additional convolutional layers refine features to prevent information loss during upscaling. A decoder-only Transformer is trained to predict these token maps autoregressively, starting from global layouts. A causal attention mask ensures detail maps attend only to previously established structural and textural information. The approach enables training-free high-resolution synthesis by upscaling the base and adding details in a patch-wise manner. Its modular framework supports strategies like intrinsic decomposition for fine-grained illumination and color control.
       </p>
-      <ul>
+      <!-- <ul>
         <li>Frequency-domain optimization on <em>quantized DCT coefficients</em></li>
         <li>JPEG-aware optimization provides robustness against purification</li>
         <li>Better tradeoff between noise perception and edit protection</li>
         <li>Uses upto 67% fewer parameters compared to pixel space approaches</li>
         <li>Utilizes only the VAE of the editor, making it highly transferable</li>
-      </ul>
+      </ul> -->
       <div class="thumb"><img src="images/method.png" alt="Method overview diagram (replace)"/></div>
     </section>
 
